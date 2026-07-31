@@ -1,0 +1,162 @@
+git config --global --unset user.name 
+git config --global --unset user.email 
+
+
+git config --global user.name "anusweety123"
+git config --global user.email "sweetts852@gmail.com"
+
+
+Git operations:
+push 
+pull
+fetch
+reset
+revert
+pull
+merge
+
+
+1. push operation: local to remote
+
+command: git push origin <branch name>
+
+step 1: create project directory in the local machine
+
+step 2: create remote repository(GitHub)
+
+step 3:execute git lifecycle commands for push operation
+
+echo "# firstapp" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Anusha0986/secondapp.git
+git push -u origin main
+
+origin ----> nothing but address of remote repo
+
+second time onwards:
+
+git add README.md
+git commit -m "first commit"
+git push -u origin main
+
+2. Fetch and Merge Operation(created file in remote): remote to local 
+-------------------------------------------------
+step 1:fetch latest changes
+
+command: git fetch origin
+
+step 2:check the status
+
+command: git status
+
+step 3:view the difference
+
+command: 
+
+git diff HEAD origin/main
+
+
+step 4:merge the changes
+
+git merge origin/main
+
+3. Pull Operation:
+------------------
+
+ pull = fetch + merge
+
+git pull origin main
+
+4. reset and revert: undo the commits
+---------------------
+reset: current file to previous file
+
+
+
+echo "# file3" >> file3.txt
+git add file3.txt
+git commit -m "file3"
+
+echo "# file4" >> file4.txt
+git add file4.txt
+git commit -m "file4"
+
+after some time I don't want to send file4 into remote repo
+reset is used for delete that particular commit
+
+before push: 
+
+git log --oneline
+
+git reset --hard HEAD~1
+
+git log --oneline
+
+git push -u origin main
+
+after push:
+
+echo "# file4" >> file4.txt
+git add file4.txt
+git commit -m "file4"
+
+git push -u origin main
+
+but I want to delete file4 on both local n remote
+
+git reset --hard HEAD~1
+
+git push --f origin main
+
+revert: unlike reset it won't delete commit changes permanently.instead of deleting changes it will create new commit it reverts to the selected commit.
+
+echo "# file5" >> file5.txt
+git add file5.txt
+git commit -m "file5"
+
+
+git log --oneline
+
+if we want to revert a file:
+ git revert HEAD
+
+git push origin main
+
+
+esc --->wq--->enter
+
+5. clone and fork:download the changes
+-----------------
+
+clone: download remote repo into local system
+git clone <repo -url>
+
+fork: it is not git operation
+one features
+
+---copy another repo into your GitHub account
+--open remote repo
+---click on the fork button in the top right corner
+--GitHub copies that repo into ur account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
